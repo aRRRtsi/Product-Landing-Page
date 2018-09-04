@@ -1,0 +1,452 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+box-sizing: border-box;
+}
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+/*
+
+MAIN HAXES
+
+*/
+
+:root {
+   --lighto: #FBB862;
+   --darko: #F69451;
+   --red: #EB3630;
+   --tgrey: #707070;
+}
+
+body {
+   font-family: "Trebuchet MS", Helvetica, sans-serif;
+   font-size: 14px;
+   color: #fff;
+}
+
+h1 {
+   font-size: 2em;
+   font-weight: bold;
+}
+
+h2 {
+   font-size: 1.8em;
+   font-weight: bold;
+}
+
+h3 {
+   font-size: 1.6em;
+   font-weight: bold;
+}
+
+h4 {
+   font-size: 1.4em;
+   font-weight: bold;
+}
+
+h5 {
+   font-size: 1.2em;
+   font-weight: bold;
+}
+
+h1 span, h2 span {
+   color: var(--red);
+}
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+/*
+
+MEDIA
+
+*/
+
+@media (min-width: 768px) {
+   .wrapper {
+      display: grid;
+      grid-template-columns: 100px 1fr 100px;
+      grid-template-rows: auto 1fr auto;
+   }
+   #header {
+      height: 160px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 10px!important;
+   }
+   #header-img {
+      display: flex;
+      justify-content: start;
+   }
+   #nav-bar {
+      display: grid;
+      align-content: end;
+   }
+   #nav-bar ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+   }
+   main {
+      margin-top: 160px;
+   }
+   .leftside {
+      margin-top: 160px!important;
+   }
+   .rightside {
+      margin-top: 160px;
+   }
+   #video {
+      border-radius: 50px!important;
+   }
+   #big-phone {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-radius: 50px!important;
+   }
+   #big-phone-img img {
+      height: 500px!important;
+   }
+   #big-phone-content {
+      grid-column: span 2;
+      text-align: left;
+      align-self: center;
+   }
+   #big-phone-content h1 {
+      font-size: 3em;
+   }
+   #small-phone {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-radius: 50px!important;
+   }
+   #small-phone-img {
+      grid-column: 3 / 4;
+      order: 2;
+   }
+   #small-phone-img img {
+      height: 500px!important;
+   }
+   #small-phone-content {
+      grid-column: 1 / 3;
+      text-align: right;
+      order: 1;
+      align-self: center;
+   }
+   #small-phone-content h1 {
+      font-size: 3em;
+   }
+   #android {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-radius: 50px!important;
+   }
+   #android-img img {
+      height: 200px!important;
+   }
+   #android-content {
+      grid-column: span 2;
+      text-align: left;
+      align-self: center;
+   }
+   #android-content h1 {
+      font-size: 3em;
+   }
+   #tech-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+   }
+   #barephone-xl, #barephone-m {
+      border-radius: 50px!important;
+      width: 90%;
+      justify-self: center;
+   }
+   #barephone-xl button,
+   #barephone-m button {
+      font-size: 1.2em;
+   }
+   #get-yours {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-radius: 50px!important;
+      justify-content: center;
+   }
+   #form {
+      display: flex;
+      width: 60%;
+      height: 40px;
+   }
+   #email {
+      height: 100%;
+   }
+   #submit {
+      margin-left: 15px;
+      height: 100%;
+      font-size: 1em;
+   }
+
+}
+
+/*
+
+HEADER
+
+*/
+
+#header {
+   grid-column: span 3;
+   padding: 10px;
+   text-align: center;
+   background: #fff;
+   position: fixed;
+   z-index: 99;
+   width: 100%;
+}
+
+#nav-bar .nav-link {
+   text-decoration: none;
+   color: var(--tgrey);
+}
+
+#nav-bar ul li {
+   padding: 2px;
+}
+
+#nav-bar .nav-link.btn {
+   display: inline-grid;
+   align-content: center;
+   border-radius: 10px;
+   width: 80px;
+   height: 30px;
+   background: var(--red);
+   color: #fff;
+}
+
+/*
+
+content
+
+*/
+
+main {
+   flex: 1;
+   padding: 0 20px;
+}
+
+.leftside {
+   padding: 0;
+   margin-top: 260px;
+}
+
+.rightside {
+   padding: 0;
+}
+
+#video-sec {
+   margin: 20px 0 10px;
+}
+
+#video {
+   border-radius: 20px;
+   width: 100%;
+}
+
+/* phones section */
+
+#overview {
+   margin: 0 auto;
+   text-align: center;
+}
+
+
+/* big phone */
+
+#big-phone {
+   background-color: var(--lighto);
+   padding: 20px;
+   margin: 10px 0;
+   border-radius: 20px;
+}
+
+#big-phone-img img {
+   height: 200px;
+}
+
+#big-phone h1, p {
+   margin: 15px;
+}
+
+
+/* small phone */
+
+#small-phone {
+   background-color: var(--darko);
+   padding: 20px;
+   margin: 10px 0;
+   border-radius: 20px;
+}
+
+#small-phone-img img {
+   height: 200px;
+}
+
+#small-phone h1, p {
+   margin: 15px;
+}
+
+
+/* android */
+
+#android {
+   background-color: var(--lighto);
+   padding: 20px;
+   margin: 10px 0;
+   border-radius: 20px;
+}
+
+#android-img img {
+   height: 100px;
+}
+
+#android h1, p {
+   margin: 15px;
+}
+
+
+/* tech specs */
+
+#tech-specs {
+   text-align: center;
+}
+
+#barephone-xl,
+#barephone-m {
+   background-color: var(--darko);
+   padding: 20px;
+   margin: 10px 0;
+   border-radius: 20px;
+}
+
+#barephone-xl h2,
+#barephone-m h2 {
+   border-bottom: 4px solid #fff;
+   padding-bottom: 10px;
+}
+
+#barephone-xl h1, h2, h3, h4, h5, p, ul,
+#barephone-m h1, h2, h3, h4, h5, p, ul {
+   margin: 15px;
+}
+
+#barephone-xl ul li,
+#barephone-m ul li {
+   line-height: 1.2;
+}
+
+#barephone-xl button,
+#barephone-m button {
+   background: var(--red);
+   height: 45px;
+   width: 150px;
+   border: none;
+   border-radius: 10px;
+   outline: none;
+   text-transform: uppercase;
+   color: #fff;
+}
+
+
+/* get-yours */
+
+#get-yours {
+   background-color: var(--lighto);
+   text-align: center;
+   padding: 20px;
+   margin: 10px 0;
+   border-radius: 20px;
+}
+
+#email {
+   width: 100%;
+   height: 40px;
+   border: none;
+   border-radius: 10px;
+   outline: none;
+   padding-left: 10px;
+   color: #ccc;
+   margin: 0 0 10px;
+}
+
+#submit {
+   background: var(--red);
+   height: 40px;
+   width: 30%;
+   border: none;
+   border-radius: 10px;
+   outline: none;
+   text-transform: uppercase;
+   color: #fff;
+}
+
+footer {
+   grid-column: span 3;
+   text-align: center;
+   background: var(--darko);
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+}
+
+footer a {
+   text-decoration: none;
+   color: #fff;
+}
